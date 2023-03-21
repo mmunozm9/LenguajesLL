@@ -12,6 +12,9 @@ int main() {
         cout << "Ingresa 4 para buscar usuario existente" << " \n ";
         cout << "Ingresa 5 para consultar vecinos" << " \n ";
         cout << "Ingresa 6 para ver habitaciones disponibles" << " \n ";
+        cout <<"Ingresa 7 para ver si la habitación esta ocupada" << " \n ";
+        cout <<"Ingrese 8 para eliminar un huesped";
+
 
 
         int opcion;
@@ -69,6 +72,44 @@ int main() {
             cin >> num;
 
         }
+        if(opcion == 5){
+            int numhabit;
+            cout << "Ingrese el numero de la habitación";
+            cin >> numhabit;
+            Nodo *tempBuscarHab = lista.mirarvecinos(numhabit);
+            if (tempBuscarHab!= NULL) {
+                cout << "Vecino siguiente: "<< tempBuscarHab->getPrevio()->getDato1() <<" \n ";
+                cout << "Vecino anterior: "<<tempBuscarHab->getSgte()->getDato1() <<" \n ";
+            } else {
+                cout << "No hay vecinos" << endl;
+            }
+        }
+
+        if(opcion == 7){
+
+            int numhabit;
+            cout << "Ingrese el numero de la habitación";
+            cin >> numhabit;
+            Nodo *tempBuscarHab = lista.buscarHabitacion(numhabit);
+            if (tempBuscarHab!= NULL) {
+                cout << "El habitacion esta ocupada"<<" \n ";
+            } else {
+                cout << "La habitación esta libre" << endl;
+            }
+        }
+
+        if(opcion==8){
+            int numhabit;
+            cout << "Ingrese el numero de la habitación";
+            cin >> numhabit;
+            Nodo *tempElimiar = lista.eliminar(numhabit);
+            if (tempElimiar!= NULL) {
+                cout<<"Usuario eliminado" <<" \n ";
+            } else {
+                cout << "No se encontro usuario" << endl;
+            }
+        }
+
     }
     return 0;
 }
