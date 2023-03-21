@@ -1,6 +1,3 @@
-//
-// Created by Mariana Muñoz on 13/03/23.
-//
 #include <iostream>
 #include <fstream>
 #include "Lista.h"
@@ -144,7 +141,41 @@ void Lista::visualizarListaDerechaOrdenada() {
     }
 }
 
+Nodo * Lista::checkCarto(int habitacion) {
+    Nodo* actual = head;
+    while(actual != nullptr){
+        if(actual->getDato2() == habitacion){
+            return actual;
+        }
+        actual = actual->getSgte();
+    }
+    return NULL;
+}
 
+Nodo * Lista::mirarvecinos(int habitacion) {
+    Nodo *actual = head;
+    while(actual != nullptr){
+        if(actual->getDato2() == habitacion){
+            return actual;
+        }
+        actual = actual->getSgte();
+
+    }
+    return NULL;
+}
+
+Nodo* Lista::eliminar(int habitacion){
+    Nodo *actual = head;
+    while(actual!= nullptr){
+        if(actual->getDato2() == habitacion){
+            actual->setDato1("Vacio");
+            return actual;
+        }
+        actual = actual->getSgte();
+
+    }
+    return NULL;
+}
 
 
 
