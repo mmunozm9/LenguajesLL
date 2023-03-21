@@ -59,7 +59,7 @@ int main() {
 
                 Nodo *tempBuscarHuesped = lista.buscarHuesped(nombreHues);
                 if (tempBuscarHuesped != NULL) {
-                    cout << "El huesped es: " << tempBuscarHuesped->getDato2() << endl;
+                    cout << "El huesped esta en la habitación: " << tempBuscarHuesped->getDato2() << endl;
                 } else {
                     cout << "No se encontro huesped" << endl;
                 }
